@@ -2,7 +2,7 @@
 
 ## Student Information
 
-- **Name**: Biswajeet Rout
+- **Name**: sameer shaikh
 - **Course**: B.Tech CSE
 - **Instructor**: Mr. Prasad Junghare
 - **Email**: 2025.sameers@isu.ac.in
