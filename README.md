@@ -1,7 +1,6 @@
 # JavaScript Course Assignments
 
 ## Student Information
-
 - **Name**: sameer shaikh
 - **Course**: B.Tech CSE
 - **Instructor**: Mr. Prasad Junghare
