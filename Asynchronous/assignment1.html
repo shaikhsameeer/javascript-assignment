@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <body style="text-align: center; padding: 50px">
+        <h1>Weather Check</h1>
+
+        <button onclick="getWeather('London')">London</button>
+        <button onclick="getWeather('New York')">New York</button>
+        <button onclick="getWeather('Tokyo')">Tokyo</button>
+        <button onclick="getWeather('Delhi')">Delhi</button>
+        <button onclick="getWeather('Sydney')">Sydney</button>
+
+        <p id="weather" style="font-size: 20px; margin-top: 30px">
+            Click a city to see weather
+        </p>
+
+        <script>
+            async function getWeather(city) {
+                try {
+                    document.getElementById("weather").innerHTML = "Loading...";
+
+                    const response = await fetch(
+                        `https://wttr.in/${city}?format=%C+%t`,
+                    );
+
+                    if (!response.ok) throw new Error("City not found");
+
+                    const data = await response.text();
+
+                    document.getElementById("weather").innerHTML =
+                        `Weather in ${city}: ${data}`;
+                } catch (error) {
+                    document.getElementById("weather").innerHTML =
+                        `Error: Could not get weather for ${city}`;
+                }
+            }
+        </script>
+    </body>
+</html>

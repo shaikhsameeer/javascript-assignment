@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Emoji Reactor</title>
+        <style>
+            body {
+                font-family: Arial;
+                text-align: center;
+                padding: 50px;
+                background-color: #f0f0f0;
+            }
+
+            h1 {
+                color: #333;
+            }
+
+            .emoji-container {
+                margin: 30px;
+            }
+
+            .emoji-btn {
+                font-size: 40px;
+                background: white;
+                border: none;
+                padding: 15px;
+                margin: 10px;
+                cursor: pointer;
+                border-radius: 10px;
+            }
+
+            .emoji-btn:hover {
+                background-color: #e0e0e0;
+            }
+
+            #result {
+                font-size: 24px;
+                margin-top: 30px;
+                padding: 20px;
+                background: white;
+                border-radius: 10px;
+                display: inline-block;
+                min-width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>How are you feeling today?</h1>
+
+        <div class="emoji-container">
+            <button class="emoji-btn" onclick="showFeeling('😊 Happy')">
+                😊
+            </button>
+            <button class="emoji-btn" onclick="showFeeling('😢 Sad')">
+                😢
+            </button>
+            <button class="emoji-btn" onclick="showFeeling('😡 Angry')">
+                😡
+            </button>
+            <button class="emoji-btn" onclick="showFeeling('😴 Tired')">
+                😴
+            </button>
+            <button class="emoji-btn" onclick="showFeeling('🤔 Thinking')">
+                🤔
+            </button>
+        </div>
+
+        <div id="result">Select an emoji above</div>
+
+        <script>
+            function showFeeling(feeling) {
+                document.getElementById("result").innerHTML =
+                    "You're feeling: " + feeling;
+            }
+        </script>
+    </body>
+</html>

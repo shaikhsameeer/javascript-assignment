@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+    <head>
+        <title>My First JavaScript</title>
+        <style>
+            body {
+                font-family: Arial;
+                text-align: center;
+                padding: 50px;
+            }
+
+            button {
+                background: green;
+                color: white;
+                padding: 10px 20px;
+                font-size: 20px;
+                border: none;
+                margin: 10px;
+            }
+
+            .box {
+                width: 200px;
+                height: 200px;
+                background: blue;
+                margin: 20px auto;
+            }
+
+            .message {
+                font-size: 24px;
+                margin: 20px;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Click the Buttons!</h1>
+
+        <button onclick="sayHello()">Click Me</button>
+
+        <div class="message" id="text">Hello!</div>
+
+        <button onclick="changeColor()">Change Color</button>
+
+        <div class="box" id="colorBox"></div>
+
+        <button onclick="showMore()">Show More</button>
+        <button onclick="showLess()">Show Less</button>
+
+        <script>
+            // Function 1: Change text
+            function sayHello() {
+                document.getElementById("text").innerHTML =
+                    "You clicked the button!";
+                document.getElementById("text").style.color = "red";
+            }
+
+            // Function 2: Change box color
+            function changeColor() {
+                document.getElementById("colorBox").style.backgroundColor =
+                    "orange";
+            }
+
+            // Function 3: Make text bigger
+            function showMore() {
+                document.getElementById("text").style.fontSize = "40px";
+            }
+
+            // Function 4: Make text smaller
+            function showLess() {
+                document.getElementById("text").style.fontSize = "20px";
+            }
+        </script>
+    </body>
+</html>

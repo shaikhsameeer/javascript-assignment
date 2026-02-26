@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+    <head>
+        <title>CSE Lab: Banking System</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                padding: 20px;
+                line-height: 1.6;
+            }
+            .box {
+                border: 1px solid #ccc;
+                padding: 15px;
+                width: 350px;
+                border-radius: 5px;
+            }
+            .status {
+                font-weight: bold;
+                color: blue;
+                margin: 10px 0;
+            }
+            .error {
+                color: red;
+                font-size: 0.9em;
+            }
+            ul {
+                font-size: 0.85em;
+                background: #f9f9f9;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Bank Account Management</h2>
+        <div class="box">
+            <div>
+                <strong>Account Holder:</strong>
+                <span id="user">Student_101</span>
+            </div>
+            <div>
+                <strong>Current Balance:</strong> $<span id="balanceDisplay"
+                    >0</span
+                >
+            </div>
+
+            <hr />
+
+            <input type="number" id="amountInput" placeholder="Enter amount" />
+            <br /><br />
+            <button onclick="performAction('deposit')">Deposit</button>
+            <button onclick="performAction('withdraw')">Withdraw</button>
+
+            <p id="msg" class="error"></p>
+        </div>
+
+        <h3>Transaction Log</h3>
+        <ul id="history"></ul>
+
+        <script>
+            class BankSystem {
+                constructor(initialBalance) {
+                    this.balance = initialBalance;
+                    this.transactions = [];
+                }
+
+                deposit(amount) {
+                    if (amount <= 0 || isNaN(amount)) {
+                        throw new Error(
+                            "Please enter a valid positive number.",
+                        );
+                    }
+                    this.balance += amount;
+                    this.logTransaction("Deposit", amount);
+                }
+
+                withdraw(amount) {
+                    if (amount <= 0 || isNaN(amount)) {
+                        throw new Error("Invalid withdrawal amount.");
+                    }
+                    if (amount > this.balance) {
+                        throw new Error("Insufficient funds!");
+                    }
+                    this.balance -= amount;
+                    this.logTransaction("Withdrawal", amount);
+                }
+
+                logTransaction(type, amount) {
+                    const entry = `${type}: $${amount} | Total: $${this.balance} | ${new Date().toLocaleTimeString()}`;
+                    this.transactions.push(entry);
+                }
+            }
+
+            const myBank = new BankSystem(500);
+            const balanceDisplay = document.getElementById("balanceDisplay");
+            const historyList = document.getElementById("history");
+            const msgDisplay = document.getElementById("msg");
+            const inputField = document.getElementById("amountInput");
+
+            balanceDisplay.innerText = myBank.balance;
+
+            function performAction(type) {
+                const amount = parseFloat(inputField.value);
+                msgDisplay.innerText = "";
+
+                try {
+                    if (type === "deposit") {
+                        myBank.deposit(amount);
+                    } else {
+                        myBank.withdraw(amount);
+                    }
+
+                    balanceDisplay.innerText = myBank.balance;
+                    renderHistory();
+                    inputField.value = "";
+                } catch (err) {
+                    msgDisplay.innerText = err.message;
+                }
+            }
+
+            function renderHistory() {
+                const latest =
+                    myBank.transactions[myBank.transactions.length - 1];
+                const li = document.createElement("li");
+                li.textContent = latest;
+                historyList.appendChild(li);
+            }
+        </script>
+    </body>
+</html>

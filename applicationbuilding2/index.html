@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Whack a Mole</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h2>Whack a Mole Game</h2>
+        <p>
+            Score: <span id="score">0</span> | Time Left:
+            <span id="timer">30</span>s
+        </p>
+        <button id="start-btn">Start Game</button>
+        <br /><br />
+
+        <!-- 3x3 grid of boxes -->
+        <table align="center">
+            <tr>
+                <td class="box"></td>
+                <td class="box"></td>
+                <td class="box"></td>
+            </tr>
+            <tr>
+                <td class="box"></td>
+                <td class="box"></td>
+                <td class="box"></td>
+            </tr>
+            <tr>
+                <td class="box"></td>
+                <td class="box"></td>
+                <td class="box"></td>
+            </tr>
+        </table>
+
+        <p id="msg"></p>
+
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+body {
+    text-align: center;
+    font-family: Arial;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 5px;
+}
+
+p {
+    margin: 10px 0;
+}
+
+button {
+    padding: 8px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 10px auto;
+}
+
+.box {
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 2rem;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+}
+
+.box.mole {
+    background-color: lightgray;
+}
+
+#msg {
+    font-weight: bold;
+    margin-top: 15px;
+}

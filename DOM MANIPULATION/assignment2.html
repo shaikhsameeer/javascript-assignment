@@ -1,0 +1,31 @@
+<html>
+    <body>
+        <h1>Story Time</h1>
+
+        <button onclick="showScary()">Scary</button>
+        <button onclick="showFunny()">Funny</button>
+        <button onclick="showAdventure()">Adventure</button>
+
+        <p id="story"></p>
+
+        <script>
+            function showScary() {
+                document.getElementById("story").innerHTML =
+                    "In the dark woods, friends found an old cabin. They entered and woke something evil.";
+                document.body.style.backgroundColor = "#ffeeee";
+            }
+
+            function showFunny() {
+                document.getElementById("story").innerHTML =
+                    "A penguin walks into a bar. He asks, 'Have you seen my brother?'";
+                document.body.style.backgroundColor = "#ffffcc";
+            }
+
+            function showAdventure() {
+                document.getElementById("story").innerHTML =
+                    "In the Amazon jungle, an explorer finds a hidden golden city with traps.";
+                document.body.style.backgroundColor = "#eeffee";
+            }
+        </script>
+    </body>
+</html>
